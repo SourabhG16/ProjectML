@@ -141,7 +141,8 @@ for i in range(0,5):
 import numpy as np  
 import matplotlib.pyplot as plt  
 import pandas as pd  
-predd = pd.read_csv('His.csv',error_bad_lines=False) 
+# predd = pd.read_csv('His.csv',error_bad_lines=False) 
+predd = pd.read_csv('His.csv') 
 predd=pd.DataFrame(predd)
 predd.dropna()
 print(predd)
