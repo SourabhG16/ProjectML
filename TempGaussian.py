@@ -29,11 +29,11 @@ print("This is the standard deviation:", std)
 x=np.linspace(min(samples), max(samples),12)
 print("Excess kurtosis of normal distribution ( should be 0):{}".format(stats.kurtosis(x)))
 print("Skewness of normal distribution ( should be 0):{}".format(stats.skew(x)))
-y_pdf=stats.norm.pdf(25,mean,std)
+y_pdf=stats.norm.pdf(30,mean,std)
 print("y_pdf",y_pdf)
-y_cdf=stats.norm.cdf(25,mean,std)
+y_cdf=stats.norm.cdf(30,mean,std)
 print("y_cdf",y_cdf)
-y_ppf=stats.norm.ppf(25,mean,std)
+y_ppf=stats.norm.ppf(30,mean,std)
 print("y_ppf",y_ppf)
 y_skew_pdf=stats.skewnorm.pdf(x,*stats.skewnorm.fit(samples))
 fit = stats.norm.pdf(samples, mean, std)
@@ -41,12 +41,12 @@ fit = stats.norm.pdf(samples, mean, std)
 pl.plot(samples,fit,'-o')
 pl.hist(samples,normed=True)      #use this to draw histogram of 
 pl.show() 
-  
+
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.stats import multivariate_normal
 a = np.array([58,48,38,30,50,72,82,83,80,69,65,64])
-c = multivariate_normal.cdf(22, mean=62.417, cov=8.864); 
+c = multivariate_normal.cdf(30, mean=62.417, cov=8.864); 
 print(c)
 b=np.	array([1,2,2,4,7,7,6,5,3,2,2,1])
 plt.plot(a,b)
@@ -74,7 +74,7 @@ print (Counter(m))
 print ("This is the minimum number:", min(m))
 print ("This is the maximum number:", max(m))
 print ("This is the mean number:", sum(m)/len(m))
-# Convert list to numpy array
+#Convert list to numpy array
 samples1=np.array(m)
 mean1=np.mean(samples)
 var1=np.var(samples)
@@ -83,16 +83,27 @@ print("This is the standard deviation:", std1)
 p=np.linspace(min(samples1), max(samples1),12)
 print("Excess kurtosis of normal distribution ( should be 0):{}".format(stats.kurtosis(p)))
 print("Skewness of normal distribution ( should be 0):{}".format(stats.skew(p)))
-p_pdf=stats.norm.pdf(0.25,mean1,std1)
+p_pdf=stats.norm.pdf(0.50,mean1,std1)
 print("y_pdf",p_pdf)
-p_cdf=stats.norm.cdf(0.25,mean1,std1)
+p_cdf=stats.norm.cdf(0.50,mean1,std1)
 print("y_cdf",p_cdf)
-p_ppf=stats.norm.ppf(0.25,mean1,std1)
+p_ppf=stats.norm.ppf(0.50,mean1,std1)
 print("y_ppf",p_ppf)
 p_skew_pdf=stats.skewnorm.pdf(p,*stats.skewnorm.fit(samples))
 fit1 = stats.norm.pdf(samples1, mean1, std1)
 #this is a fitting indeed
 pl.plot(samples1,fit1,'-o')
-pl.hist(samples1,normed=True)      #use this to draw histogram of 
+pl.hist(samples1,normed=True)     
+#use this to draw histogram of 
 pl.show()    
 print((y_cdf+p_cdf+c))
+import random 
+d=random.uniform(0.5,1.0)
+e=random.uniform(0.5,1.0)
+f=random.uniform(0.5,1.0)
+similarity=d*y_cdf+e*p_cdf+c*f
+print(similarity)
+
+predData=open('HistoricalUse.Xls',r)
+predd=predData.read()
+print(preddd)
